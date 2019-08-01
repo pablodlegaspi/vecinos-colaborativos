@@ -1,0 +1,186 @@
+@import "css/_timeline.css";
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.perfil-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.perfil-contenido {
+  width: 85%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 20px;
+  align-self: center;
+  background-color: white;
+  border: 2px black solid;
+  border-radius: 10px;
+}
+
+.foto-nombre-y-redes {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  border-right: 1px solid black;
+}
+
+.foto-en-perfil  {
+  width: 180px;
+  height: 180px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  border: 5px black;
+}
+
+.foto-en-perfil a img {
+  width: 180px;
+  height: 180px;
+  border-radius: 100%;
+}
+
+.datos-en-perfil {
+  padding-left: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.datos-en-perfil a {
+  text-decoration: none;
+  color: rgb(107, 55, 148);
+  font-weight: bold;
+  padding-bottom: 15px;
+}
+
+.datos-en-perfil ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.datos-en-perfil li {
+  display: inline;
+  margin-right: 3px;
+}
+
+.datos-en-perfil li a {
+  transition: transform .3s;
+}
+
+.datos-en-perfil li a:hover {
+  transform: scale(2);
+}
+
+.fb a {
+  color: #4267b2;
+}
+
+.tw a {
+  color: #1da1f2;
+}
+
+.ig a {
+  color: #000000;
+}
+
+.li a {
+  color: #0077B5;
+}
+
+.datos-en-perfil li:last-child {
+  margin-right: 0;
+}
+
+.descripcion-perfil {
+  width: 40%;
+}
+
+.menu-perfil {
+  width: 20%;
+}
+
+.menu-perfil ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-perfil li {
+  padding: 8.7px;
+  border-bottom: 1px solid black;
+}
+
+.menu-perfil li:last-child {
+  border-bottom: none;
+}
+
+.menu-perfil li a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.menu-perfil li:hover {
+  background-color: rgb(107, 55, 148);
+  transition: background-color .3s ease-in;
+}
+
+.menu-perfil li a:hover {
+  color: white;
+}
+
+@media (max-width: 1024px) {
+
+  .descripcion-perfil {
+    display: none;
+  }
+
+  .perfil-contenido {
+    width: 95%;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .perfil-contenido {
+    width: 90%;
+  }
+
+  .menu-perfil {
+    display: none;
+  }
+
+  .foto-nombre-y-redes {
+    border-right: none;
+  }
+
+}
+
+@media (max-width: 520px) {
+
+  .perfil-contenido {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

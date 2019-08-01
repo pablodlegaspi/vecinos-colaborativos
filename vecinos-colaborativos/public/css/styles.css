@@ -1,0 +1,24 @@
+@import "https://use.fontawesome.com/releases/v5.8.2/css/all.css";
+@import "https://fonts.googleapis.com/css?family=Open+Sans&display=swap";
+
+@import "modules/_home.css";
+@import "modules/_faq.css";
+@import "modules/_tyc.css";
+@import "modules/_register.css";
+@import "modules/_login.css";
+@import "modules/_timeline.css";
+@import "modules/_profile.css";
+@import "modules/_contactos.css";
+@import "modules/_settings.css";
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: auto;
+  background-color: #e9ebee;
+  font-size: 16px;
+  font-family: Open Sans, sans-serif;
+}

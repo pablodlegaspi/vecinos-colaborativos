@@ -1,0 +1,14 @@
+*{
+  box-sizing: border-box;
+}
+
+.container-faq{
+  width: 100%;
+}
+
+.main-text{
+  justify-content: center;
+  margin-top: 15px;
+  margin-left: 15px;
+  margin-right: 15px;
+}

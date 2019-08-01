@@ -1,0 +1,69 @@
+@import "css/_timeline.css";
+@import "css/_profile.css";
+
+.timeline-center {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.contacto {
+  width: 49%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  border: 2px solid black;
+  padding: 10px;
+  background-color: white;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.contacto-izq img {
+  border-radius: 100%;
+  width: 100%;
+}
+
+.contacto-der ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.contacto-der ul li {
+  display: inline;
+}
+
+.contacto-der {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+
+.nombre-contacto {
+  text-decoration: none;
+  color: rgb(107, 55, 148);
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+@media (max-width: 520px) {
+
+  .timeline-center {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+
+  .contacto {
+    width: 100%;
+  }
+
+}

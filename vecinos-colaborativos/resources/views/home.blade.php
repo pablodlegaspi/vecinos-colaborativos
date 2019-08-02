@@ -9,10 +9,10 @@
   <body>
     <div class="container-home">
       <section class="header-home">
-        <a class="logo-home" href="_home.php"><img src="deposito-de-archivos/Logo70x70.png" alt="logo-de-vecinos-colaborativos"></a>
+        <a class="logo-home" href="/home"><img src="/images/Logo70x70.png" alt="logo-de-vecinos-colaborativos"></a>
         <div class="login-register">
-            <a href="login.php">Iniciar Sesión</a>
-            <a href="register.php">Registrate</a>
+            <a href="/login">Iniciar Sesión</a>
+            <a href="/register">Registrate</a>
         </div>
       </section>
       <div class="main-l-r">
@@ -24,14 +24,14 @@
           <p align=center><i>¡Encuentra tus nuevos vecinos!</i></p>
         </div>
         <div class="main-right">
-          <img src="deposito-de-archivos/img-01.jpg" alt="cohousing-img">
+          <img src="/images/img-01.jpg" alt="cohousing-img">
           <p><b>"Mucha gente pequeña, en lugares pequeños, haciendo cosas pequeñas, puede cambiar el mundo"</b></p>
           <span><b>Eduardo Galeano</b></span>
         </div>
       </div>
       <section class="footer">
-          <a href="faq.php">Preguntas Frecuentes</a>
-          <a href="tyc.php">Términos y Condiciones</a>
+          <a href="/faq">Preguntas Frecuentes</a>
+          <a href="/tyc">Términos y Condiciones</a>
       </section>
     </div>
   </body>

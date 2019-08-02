@@ -18,3 +18,11 @@ Route::get('/', function () {
 Route::get('/home', function() {
   return view('home');
 });
+
+Route::get('/faq', function(){
+  return view('faq');
+});
+
+Route::get('/tyc', function(){
+  return view('tyc');
+});

@@ -2,7 +2,7 @@
 <html lang="es" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Preguntas Frecuentes</title>
   </head>
@@ -10,7 +10,7 @@
     <div class="container-faq">
       <header>
         <section class="header-home">
-          <a class="logo-home" href="/home"><img src="deposito-de-archivos/Logo70x70.png" alt="logo-de-vecinos-colaborativos"></a>
+          <a class="logo-home" href="/home"><img src="/images/Logo70x70.png" alt="logo-de-vecinos-colaborativos"></a>
           <div class="login-register">
               <a href="/login">Iniciar Sesión</a>
               <a href="/register">Registrate</a>

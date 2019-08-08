@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home', function() {
   return view('home');
 });
@@ -26,3 +27,5 @@ Route::get('/faq', function(){
 Route::get('/tyc', function(){
   return view('tyc');
 });
+
+Auth::routes();

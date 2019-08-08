@@ -8,13 +8,13 @@
   </head>
   <body>
     <div class="container-home">
-      <section class="header-home">
+      {{-- <section class="header-home">
         <a class="logo-home" href="/home"><img src="/images/Logo70x70.png" alt="logo-de-vecinos-colaborativos"></a>
         <div class="login-register">
             <a href="/login">Iniciar Sesión</a>
             <a href="/register">Registrate</a>
         </div>
-      </section>
+      </section> --}}
       <div class="main-l-r">
         <div class="main-left">
           <h1>Vecinos Colaborativos</h1>
@@ -29,10 +29,10 @@
           <span><b>Eduardo Galeano</b></span>
         </div>
       </div>
-      <section class="footer">
+      {{-- <section class="footer">
           <a href="/faq">Preguntas Frecuentes</a>
           <a href="/tyc">Términos y Condiciones</a>
-      </section>
+      </section> --}}
     </div>
   </body>
 </html>

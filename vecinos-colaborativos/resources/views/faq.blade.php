@@ -8,7 +8,7 @@
   </head>
   <body>
     <div class="container-faq">
-      <header>
+      {{-- <header>
         <section class="header-home">
           <a class="logo-home" href="/home"><img src="deposito-de-archivos/Logo70x70.png" alt="logo-de-vecinos-colaborativos"></a>
           <div class="login-register">
@@ -16,7 +16,7 @@
               <a href="/register">Registrate</a>
           </div>
         </section>
-      </header>
+      </header> --}}
     <div class="main-text">
       <h1 align= center >Preguntas Frecuentes</h1>
       <h4>¿Qué es “VecinosColaborativos.com”?</h4>
@@ -44,11 +44,11 @@
       <h4>No me interesa participar más ¿Cómo me doy de baja de la plataforma?</h4>
       <p>Para darte de baja simplemente tendrás que ir hasta tu Perfil, seleccionar la opción “Configuración” y darle click a la opción “Cancelar Cuenta”. Haciendo esto perderás toda la información que compartiste en la plataforma.</p>
     </div>
-  <footer class="footer">
+  {{-- <footer class="footer">
     <a href="/home">Home</a>
     <a href="/tyc">Términos y Condiciones</a>
     <a href="#">Volver Arriba</a>
-  </footer>
+  </footer> --}}
     </div>
   </body>
 </html>

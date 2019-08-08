@@ -8,6 +8,7 @@
   </head>
   <body>
     <div class="container-home">
+      @include('partials.header')
       {{-- <section class="header-home">
         <a class="logo-home" href="/home"><img src="/images/Logo70x70.png" alt="logo-de-vecinos-colaborativos"></a>
         <div class="login-register">

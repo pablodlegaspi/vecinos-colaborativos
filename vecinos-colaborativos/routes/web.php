@@ -29,3 +29,11 @@ Route::get('/tyc', function(){
 });
 
 Auth::routes();
+
+Route::get('/timeline', function(){
+  return view('timeline');
+});
+
+Route::get('/profile', function(){
+  return view('profile');
+});

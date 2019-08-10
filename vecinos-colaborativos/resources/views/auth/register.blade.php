@@ -31,16 +31,16 @@
       <div class="formulario">
         <form action="" method="post" enctype="multipart/form-data">
           <div class="form-element">
-            <label for="fullName">
-              <b>Nombre Completo:</b>
+            <label for="first_Name">
+              <b>Nombre:</b>
             </label>
-            <input class="form" type="text" name="fullName" id="fullName">
+            <input class="form" type="text" name="first_name" id="first_Name">
           </div>
           <div class="form-element">
-            <label for="userName">
-              <b>Nombre de Usuario:</b>
+            <label for="last_Name">
+              <b>Apellido:</b>
             </label>
-            <input class="form" type="text" name="userName" id="userName">
+            <input class="form" type="text" name="last_name" id="last_Name">
           </div>
           <div class="form-element">
             <label for="email">
@@ -65,17 +65,20 @@
               <b>País de Nacimiento:</b>
               <select class="countries" name="country">
                 <option value="">Elegí un país</option>
+                @foreach ($countries as $key => $country)
+                  <option value="{{$keyy}}">{{$country}}</option>
+                @endforeach
               </select>
             </label>
           </div>
           <div class="form-element">
-            <label class="profile-pic-label-container" for="profilePic">
+            <label class="profile-pic-label-container" for="avatar">
               <b>Imagen de perfil:</b>
-              <label class="profile-pic-label" for="profilePic">
+              <label class="profile-pic-label" for="avatar">
                 <i class="fas fa-file-upload"></i>
                 Mi Archivo
               </label>
-              <input class"form" type="file" name="profilePic" id="profilePic" value="" style="display: none;">
+              <input class"form" type="file" name="avatar" id="avatar" style="display: none;">
             </label>
           </div>
           <div class="form-element">

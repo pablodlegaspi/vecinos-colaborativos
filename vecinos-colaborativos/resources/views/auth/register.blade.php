@@ -29,50 +29,95 @@
       <h3 class="crea-tu-cuenta">Creá tu Cuenta</h3>
 
       <div class="formulario">
-        <form action="" method="post" enctype="multipart/form-data">
+        <form action="/home" method="post" enctype="multipart/form-data">
+          @csrf
           <div class="form-element">
-            <label for="first_Name">
+            <label for="first_Name"
+            @error ('first_name')
+							style="color:red;">
+						@enderror
               <b>Nombre:</b>
             </label>
-            <input class="form" type="text" name="first_name" id="first_Name">
+            <input class="form" type="text" name="first_name" id="first_Name" value="{{old('first_name')}}">
+            @error ('first_name')
+              <div class="register-alert">
+                {{ $errors->first('first_name') }}
+              </div>
+						@enderror
           </div>
           <div class="form-element">
-            <label for="last_Name">
+            <label for="last_name"
+            @error ('last_name')
+							style="color:red;">
+						@enderror
               <b>Apellido:</b>
             </label>
-            <input class="form" type="text" name="last_name" id="last_Name">
+            <input class="form" type="text" name="last_name" id="last_name" value="{{old('last_name')}}">
+            @error ('last_name')
+              <div class="register-alert">
+                {{ $errors->first('last_name') }}
+              </div>
+						@enderror
           </div>
           <div class="form-element">
-            <label for="email">
+            <label for="email"
+            @error ('email')
+							style="color:red;">
+						@enderror
               <b>Correo Electrónico:</b>
             </label>
-            <input class="form" type="email" name="email" id="email">
+            <input class="form" type="email" name="email" id="email" value="{{old('email')}}">
           </div>
           <div class="form-element">
-            <label for="password">
+            <label for="password"
+            @error ('password')
+							style="color:red;">
+						@enderror
               <b>Contraseña:</b>
             </label>
             <input class="form" type="password" name="password" id="password">
+            @error ('password')
+              <div class="register-alert">
+                {{ $errors->first('password') }}
+              </div>
+						@enderror
           </div>
           <div class="form-element">
-            <label for="rePassword">
+            <label for="password_confirmation"
+            @error ('password_confirmation')
+							style="color:red;">
+						@enderror
               <b>Repetir contraseña:</b>
             </label>
-            <input class="form" type="password" name="rePassword" id="rePassword">
+            <input class="form" type="password" name="password_confirmation" id="password_confirmation">
+            @error ('password')
+              <div class="register-alert">
+                {{ $errors->first('password') }}
+              </div>
+						@enderror
           </div>
           <div class="form-element">
-            <label class="country-label" for="country">
+            <label class="country-label" for="country"
+            @error ('country')
+							style="color:red;">
+						@enderror
               <b>País de Nacimiento:</b>
               <select class="countries" name="country">
                 <option value="">Elegí un país</option>
-                @foreach ($countries as $key => $country)
-                  <option value="{{$keyy}}">{{$country}}</option>
-                @endforeach
+                <option value="ar">Argentina</option>
               </select>
             </label>
+            @error ('country')
+              <div class="register-alert">
+                {{ $errors->first('country') }}
+              </div>
+						@enderror
           </div>
-          <div class="form-element">
-            <label class="profile-pic-label-container" for="avatar">
+          <!-- <div class="form-element">
+            <label class="profile-pic-label-container" for="avatar"
+            @error ('avatar')
+              style="color:red;">
+            @enderror
               <b>Imagen de perfil:</b>
               <label class="profile-pic-label" for="avatar">
                 <i class="fas fa-file-upload"></i>
@@ -80,7 +125,13 @@
               </label>
               <input class"form" type="file" name="avatar" id="avatar" style="display: none;">
             </label>
+            @error ('avatar')
+              <div class="register-alert">
+                {{ $errors->first('avatar') }}
+              </div>
+						@enderror
           </div>
+          !-->
           <div class="form-element">
             <input class="boton" type="submit" value="Registrarme">
           </div>

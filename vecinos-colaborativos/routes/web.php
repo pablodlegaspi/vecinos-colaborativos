@@ -28,10 +28,10 @@ Route::get('/tyc', function(){
   return view('tyc');
 });
 
-//Auth::routes();
+Auth::routes();
 
-Route::get('/register', 'RegisterController@form');
-Route::post('/register', 'RegisterController@register');
+//Route::get('/register', 'RegisterController@form');
+//Route::post('/register', 'RegisterController@register');
 
 Route::get('/timeline', function(){
   return view('timeline');

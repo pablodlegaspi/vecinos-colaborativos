@@ -48,7 +48,6 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        //$request = request(); esto es para poder validar un file
 
         return Validator::make($data, [
           'first_name' => ['required', 'string', 'max:255'],
@@ -56,7 +55,7 @@ class RegisterController extends Controller
           'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
           'password' => ['required', 'string', 'min:5', 'confirmed'],
           'country' => ['required', 'string', 'max:20'],
-          //'avatar' => ['required', 'image']
+          'avatar' => ['required', 'image']
         ],[
           'required' => 'El campo es obligatorio',
           'email' => 'Ingresa un formato de email',
@@ -108,24 +107,22 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-      //$request = request();
+      $request = request();
 
-      //$avatar = $request["avatar"];
+      $avatar = $request["avatar"];
 
-      //$avatarRef = uniqid($request['email'] ) . "." . $avatar->extension();
+      $avatarRef = uniqid( $request['email'] . "-" ) . "." . $avatar->extension();
 
-      //$avatar->storePubliclyAs("public/avatars", $avatarRef);
+      $avatar->storePubliclyAs("public/avatars", $avatarRef);
 
-      // Redireccionamos
-      return redirect('/timeline');
 
         return User::create([
-            'first_name' => $data['name'],
-            'last_name' => $data['name'],
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'country' => $data['country'],
-            //'avatar' => $avatarRef
+            'avatar' => $avatarRef,
         ]);
     }
 }

@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="/css/styles.css">
+    <script src="{{ asset('js/app.js') }}" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
   </head>
@@ -10,7 +11,7 @@
 
     <div class="container">
       <section class="header-home">
-        <a class="logo-home" href="/home"><img src="/images/Logo70x70.png" alt="logo-de-vecinos-colaborativos"></a>
+        <a class="logo-home" href="/"><img src="/images/Logo70x70.png" alt="logo-de-vecinos-colaborativos"></a>
         <div class="login-register">
             <a href="/login">Iniciar Sesión</a>
             <a href="/register">Registrate</a>
@@ -26,12 +27,18 @@
         </section>
         <h3 class="login-title">Iniciar Sesión</h3>
         <div class="formulario">
-          <form action="/login" method="post">
+          <form action="{{ route('login') }}" method="post">
+            {{ csrf_field() }}
             <div class="form-element">
               <label for="userNameOrEmail">
                 <b>Nombre de Usuario / Correo Electrónico:</b>
               </label>
-              <input class="form" type="text" type="email" name="userNameOrEmail" id="userNameOrEmail" value="">
+              <input class="form" type="text" type="email" name="userNameOrEmail" id="userNameOrEmail" value="{{ old('email') }}">
+              @error('email')
+              <span class="register-alert" role="alert">
+                <strong>{{ $message }}</strong>
+              </span>
+              @enderror
             </div>
             <div class="form-element">
               <label for="password">

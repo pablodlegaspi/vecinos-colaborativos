@@ -31,7 +31,7 @@
             {{ csrf_field() }}
             <div class="form-element">
               <label for="userNameOrEmail">
-                <b>Nombre de Usuario / Correo Electrónico:</b>
+                <b>Correo Electrónico:</b>
               </label>
               <input class="form" type="text" type="email" name="userNameOrEmail" id="userNameOrEmail" value="{{ old('email') }}">
               @error('email')
@@ -45,16 +45,35 @@
                 <b>Contraseña:</b>
               </label>
               <input class="form" type="password" name="password" id="password">
+              @error('password')
+              <span class="register-alert" role="alert">
+                <strong>{{ $message }}</strong>
+              </span>
+              @enderror
             </div>
             <div class="form-element">
-              <label for="rememberUser">
+              {{-- <label for="rememberUser">
                 <input type="checkbox" name="rememberUser" class="rememberUser" id="rememberUser" value="">
+                Recordarme
+              </label> --}}
+              <label class="form-check-label" for="remember">
+                <input class="rememberUser" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                 Recordarme
               </label>
             </div>
-            <div class="form-element">
+            {{-- <div class="form-element">
               <input class="boton" type="submit" value="Ingresar">
+            </div> --}}
+            <div class="form-element">
+              <button type="submit" class="boton">
+                Ingresar
+              </button>
             </div>
+            @if (Route::has('password.request'))
+            <a class="" style="color:rgb(107, 55, 148);" href="{{ route('password.request') }}">
+              ¿Olvidaste tu contraseña?
+            </a>
+            @endif
           </form>
         </div>
         <p class="p-condiciones">Al registrarte, aceptas nuestras <a class="register-condiciones" href="tyc">Condiciones</a>, la <a class="register-condiciones" href="tyc">Política de datos </a> y

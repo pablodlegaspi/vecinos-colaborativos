@@ -55,49 +55,17 @@ class RegisterController extends Controller
           'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
           'password' => ['required', 'string', 'min:5', 'confirmed'],
           'country' => ['required', 'string', 'max:20'],
-          'avatar' => ['required', 'image']
+          'avatar' => ['image']
         ],[
           'required' => 'El campo es obligatorio',
           'email' => 'Ingresa un formato de email',
           'string' => 'Completá con el formato apropiado',
           'max' => 'Excediste el máximo de caracteres posibles',
           'image' => 'El formato debe ser apropiado para una imagen',
-          'confirmed' => 'Las contraseñas no coinciden'
+          'confirmed' => 'Las contraseñas no coinciden',
+          'email.unique:users' => 'Ya existe un usuario con ese email' //no funciona esto
         ]);
     }
-
-    /*
-
-  		$avatar = $request["avatar"];
-
-  		$avatarRef = uniqid($request['email'] ) . "." . $avatar->extension();
-
-  		$imagen->storePubliclyAs("public/avatars", $avatarRef);
-
-  		// Le asigno la imagen a la película que guardamos
-  		$newUser->avatar = $avatarRef;
-  		$newUser->save();
-
-  		// Redireccionamos
-  		return redirect('/timeline');
-    }
-
-    public function form() {
-      $countries = [
-        'ar' => 'Argentina',
-    		'br' => 'Brasil',
-    		'bo' => 'Bolivia',
-    		'co' => 'Colombia',
-    		'ch' => 'Chile',
-    		'ec' => 'Ecuador',
-    		'pe' => 'Perú',
-        'pa' => 'Paraguay',
-    		've' => 'Venezuela'
-      ];
-
-      return view('/register', compact('countries'));
-    }
-    */
 
     /**
      * Create a new user instance after a valid registration.
@@ -107,13 +75,14 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
       $request = request();
 
       $avatar = $request["avatar"];
 
       $avatarRef = uniqid( $request['email'] . "-" ) . "." . $avatar->extension();
 
-      $avatar->storePubliclyAs("public/avatars", $avatarRef);
+      $avatar->storePubliclyAs("public.avatars", $avatarRef);
 
 
         return User::create([
@@ -124,5 +93,6 @@ class RegisterController extends Controller
             'country' => $data['country'],
             'avatar' => $avatarRef,
         ]);
+
     }
 }

@@ -58,7 +58,7 @@
           </div>
 
           <div class="perfil-timeline">
-            <a href="/profile"> <span>Hola Usuario</span>
+            <a href="/profile"> <span>{{ Auth::user()->first_name . ' ' . Auth::user()->last_name}}</span>
               <div class="profile-pic-in-navbar" style="
               height: 34px;
               width: 34px;

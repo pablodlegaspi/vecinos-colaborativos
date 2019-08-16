@@ -12,7 +12,7 @@
       <section class="header-timeline">
         <div class="sub-header-timeline">
 
-          <a class="logo" href="/"><img src="/images/Logo50x50.png" alt="logo-de-vecinos-colaborativos"></a>
+          <a class="logo" href="/timeline"><img src="/images/Logo50x50.png" alt="logo-de-vecinos-colaborativos"></a>
 
           <div class="buscador-area">
             <input class="buscador" type="text" name="buscador" value="" placeholder="Buscar...">
@@ -24,11 +24,11 @@
           </div>
 
           <div class="timeline-anchor">
-            <a href="/timeline"><i class="fas fa-home"></i></a>
+            <a href="/"><i class="fas fa-home"></i></a>
           </div>
 
           <div class="menu-timeline">
-            <a href="/timeline"><i class="fas fa-home"></i></a>
+            <a href="/"><i class="fas fa-home"></i></a>
             <div class="separador">
               <span>|</span>
             </div>
@@ -36,7 +36,7 @@
             <div class="separador">
               <span>|</span>
             </div>
-            <a href="#"><i class="fas fa-user-plus"></i></a>
+            <a href="/create-post"><i class="fas fa-user-plus"></i></a>
             <div class="separador">
               <span>|</span>
             </div>
@@ -62,7 +62,7 @@
               <div class="profile-pic-in-navbar" style="
               height: 34px;
               width: 34px;
-              background-image: url('');
+              background-image: url('{{ '/storage/avatars/' . Auth::user()->avatar }}');
               background-size: cover;
               background-position: center;
               border-radius: 100%;">

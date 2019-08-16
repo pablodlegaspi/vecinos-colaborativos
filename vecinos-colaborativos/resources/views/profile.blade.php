@@ -14,7 +14,7 @@
             justify-content: center;
             align-items: center;
             border: 5px black;
-            background-image: url('{{Auth::user()->avatar}}');
+            background-image: url('{{ '/storage/avatars/' . Auth::user()->avatar }}');
             background-size: cover;
             background-position: center;
             border-radius: 100%;">

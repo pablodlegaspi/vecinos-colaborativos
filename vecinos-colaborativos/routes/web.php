@@ -35,8 +35,12 @@ Auth::routes();
 
 Route::get('/timeline', function(){
   return view('timeline');
-});
+})->middleware('auth');
 
 Route::get('/profile', function(){
   return view('profile');
+});
+
+Route::get('/create-post', function(){
+  return view('/create-post');
 });

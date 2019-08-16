@@ -82,7 +82,7 @@ class RegisterController extends Controller
 
       $avatarRef = uniqid( $request['email'] . "-" ) . "." . $avatar->extension();
 
-      $avatar->storePubliclyAs("public.avatars", $avatarRef);
+      $avatar->storePubliclyAs("public/avatars", $avatarRef);
 
 
         return User::create([

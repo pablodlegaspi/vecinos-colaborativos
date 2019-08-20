@@ -30,10 +30,10 @@
           <form action="{{ route('login') }}" method="post">
             {{ csrf_field() }}
             <div class="form-element">
-              <label for="userNameOrEmail">
+              <label for="email">
                 <b>Correo Electrónico:</b>
               </label>
-              <input class="form" type="text" type="email" name="userNameOrEmail" id="userNameOrEmail" value="{{ old('email') }}">
+              <input class="form" type="email" name="email" id="email" value="{{ old('email') }}">
               @error('email')
               <span class="register-alert" role="alert">
                 <strong>{{ $message }}</strong>

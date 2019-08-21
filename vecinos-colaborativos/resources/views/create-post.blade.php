@@ -36,8 +36,17 @@
         <input type="text" name="description" value="" placeholder="Acá podés escribir lo que quieras, si querés...">
       </div>
       <div class="multimedia-input">
-        <input type="file" name="image" value="">
-        <input type="file" name="video" value="">
+        <label class="multimedia" for="image">
+          <i class="fas fa-file-upload"></i>
+          Imágen
+        </label>
+        <input class"" type="file" name="image" id="avatar" style="display: none;">
+
+        <label class="multimedia" for="video">
+          <i class="fas fa-file-upload"></i>
+          Video
+        </label>
+        <input class"" type="file" name="image" id="avatar" style="display: none;">
       </div>
 
     </form>

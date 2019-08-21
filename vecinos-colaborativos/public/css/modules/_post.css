@@ -1,0 +1,26 @@
+.title-input {
+  border: none;
+}
+
+
+
+.multimedia-input {
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+
+
+.multimedia {
+  border-radius: 4px;
+  padding: 5px;
+  background-color: rgba(149, 112, 179, 0.63);
+  color: rgb(79, 56, 83);
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.multimedia:hover {
+  transition: background-color, color .3s ease-in;
+  background-color: rgb(107, 55, 148);
+  color: white;
+}

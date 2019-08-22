@@ -22,7 +22,7 @@
         </a>
 
         <div class="datos-en-perfil">
-          <a href="/profile">Nombre de Usuario</a>
+          <a href="/profile">{{ Auth::user()->first_name . ' ' . Auth::user()->last_name}}</a>
           <ul>
             <li class="fb"><a href="#"><i class="fab fa-facebook-f"></a></i></li>
             <li class="tw"><a href="#"><i class="fab fa-twitter"></i></a></li>
@@ -51,26 +51,74 @@
   @section('feed')
 
     <section class="timeline-center">
-      <div class="publicacion">
-        <div class="usuario-foto-publicacion">
-          <a href="#"> <img class="foto-perfil-en-publicacion" src="/images/user-24px.png" alt="foto-de-perfil"> <span>Nombre de Usuario</span> </a>
-        </div>
-        <div class="fecha-hora">
-          <a href="#">4 de junio de 2019</a>
-        </div>
-        <div class="texto-publicacion">
-          <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo ...</span>
-        </div>
-        <div class="ver-publ-container">
-          <div class="ir-a-publicacion">
-            <a href="#">Ver publicación</a>
-          </div>
-        </div>
-      </div>
 
-      <div class="publicacion">
+      @if ($posts != null)
+
+        @foreach ($posts as $post)
+
+          <div class="publicacion">
+            <div class="usuario-foto-publicacion">
+              <div class="usuario-foto-publicacion">
+                <a href="#">
+                  <div class="avatar-en-publicacion" style="
+                  height: 34px;
+                  width: 34px;
+                  background-image: url('{{ '/storage/avatars/' . Auth::user()->avatar }}');
+                  background-size: cover;
+                  background-position: center;
+                  border-radius: 100%;">
+                  </div>
+                  <span>{{ Auth::user()->getFullName()}}</span>
+                </a>
+              </div>
+              <a href="/edit-post/{{$post->id}}" class="edit-post"><i class="fas fa-edit"></i></a>
+            </div>
+            <div class="fecha-hora">
+              <a href="#">
+              {{-- ESTA FUNCION DEVUELVE SOLAMENTE EL AÑO,MES Y DIA:
+              @php
+                $time = $post->created_at;
+                $time = strstr($time, '2019-08-22'); //gets all text from needle on
+                $time = strstr($time, " ", true); //gets all text before needle
+                echo $time;
+              @endphp --}}
+              {{$post->created_at}}
+            </a>
+            </div>
+            <div class="texto-publicacion">
+              <span>{{$post->description}}</span>
+            </div>
+            @if ($post->image)
+              <div class="multimedia-publicacion">
+                <img src="/storage/post-files/{{$post->image}}" alt="foto-de-publicación">
+              </div>
+            @endif
+            @if ($post->video)
+              <div class="multimedia-publicacion">
+                <img src="{{$post->video}}" alt="foto-de-publicación">
+              </div>
+            @endif
+            <div class="ver-publ-container">
+              <div class="ir-a-publicacion">
+                <a href="#">Ver publicación</a>
+              </div>
+            </div>
+          </div>
+
+        @endforeach
+
+      @else
+
+        <div class="publicacion">
+          <span style="margin:auto;">Aún no tienes publicaciones<span>
+          </div>
+
+      @endif
+
+
+      {{-- <div class="publicacion">
         <div class="usuario-foto-publicacion">
-          <a href="#"> <img class="foto-perfil-en-publicacion" src="/images/user-24px.png" alt="foto-de-perfil"> <span>Nombre de Usuario</span> </a>
+          <a href="#"> <img class="foto-perfil-en-publicacion" src="/images/user-24px.png" alt="foto-de-perfil"> <span>{{ Auth::user()->first_name . ' ' . Auth::user()->last_name}}</span> </a>
         </div>
         <div class="fecha-hora">
           <a href="#">4 de junio de 2019</a>
@@ -90,7 +138,7 @@
 
       <div class="publicacion">
         <div class="usuario-foto-publicacion">
-          <a href="#"> <img class="foto-perfil-en-publicacion" src="/images/user-24px.png" alt="foto-de-perfil"> <span>Nombre de Usuario</span> </a>
+          <a href="#"> <img class="foto-perfil-en-publicacion" src="/images/user-24px.png" alt="foto-de-perfil"> <span>{{ Auth::user()->first_name . ' ' . Auth::user()->last_name}}</span> </a>
         </div>
         <div class="fecha-hora">
           <a href="#">4 de junio de 2019</a>
@@ -107,7 +155,7 @@
 
       <div class="publicacion">
         <div class="usuario-foto-publicacion">
-          <a href="#"> <img class="foto-perfil-en-publicacion" src="/images/user-24px.png" alt="foto-de-perfil"> <span>Nombre de Usuario</span> </a>
+          <a href="#"> <img class="foto-perfil-en-publicacion" src="/images/user-24px.png" alt="foto-de-perfil"> <span>{{ Auth::user()->first_name . ' ' . Auth::user()->last_name}}</span> </a>
         </div>
         <div class="fecha-hora">
           <a href="#">4 de junio de 2019</a>
@@ -123,7 +171,7 @@
             <a href="#">Ver publicación</a>
           </div>
         </div>
-      </div>
+      </div> --}}
 
     </section>
 

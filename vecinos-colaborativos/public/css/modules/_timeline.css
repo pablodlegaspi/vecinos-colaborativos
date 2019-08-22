@@ -304,6 +304,10 @@ hr {
 
 .usuario-foto-publicacion {
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 .usuario-foto-publicacion a span {
   padding-right: 5px;
@@ -328,11 +332,20 @@ hr {
   background-color: white;
 }
 
+.edit-post {
+  align-self: flex-start;
+  color: grey;
+}
+
+.fecha-hora {
+  width: 100%;
+}
+
 .fecha-hora a {
   text-decoration: none;
   color: rgb(148, 148, 148);
   font-size: 12px;
-  padding-left: 5px;
+  padding-left: 10px;
   padding-bottom: 5px;
 }
 

@@ -30,22 +30,18 @@ Route::get('/tyc', function(){
 
 Auth::routes();
 
-//Route::get('/register', 'RegisterController@form');
-//Route::post('/register', 'RegisterController@register');
-
 Route::get('/timeline', function(){
   return view('timeline');
 })->middleware('auth');
 
-Route::get('/profile', function(){
-  return view('profile');
-});
+Route::get('profile', 'PostsController@profile')->middleware('auth');
 
-Route::get('create-post', 'PostsController@index')->middleware('auth');
+Route::get('create-post', 'PostsController@create')->middleware('auth');
 
-
-Route::post('create-post', 'PostsController@index')->middleware('auth');
+Route::post('create-post', 'PostsController@store')->middleware('auth');
 
 Route::get('/contacts', function(){
   return view('/contacts');
 });
+
+Route::get('edit-post/{id}', 'PostsController@edit')->middleware('auth');

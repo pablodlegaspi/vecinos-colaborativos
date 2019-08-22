@@ -160,7 +160,6 @@
         @yield('feed')
 
 
-
       <section class="timeline-right">
         <div class="sugerencias">
           <div class="crear-nuevo">

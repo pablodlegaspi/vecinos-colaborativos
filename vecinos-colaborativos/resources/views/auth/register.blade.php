@@ -1,3 +1,7 @@
+@php
+  var_dump($errors)
+@endphp
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -68,6 +72,11 @@
               <b>Correo Electrónico:</b>
             </label>
             <input class="form" type="email" name="email" id="email" value="{{old('email')}}">
+            @error ('email')
+              <div class="register-alert">
+                {{ $errors->first('email') }}
+              </div>
+						@enderror
           </div>
           <div class="form-element">
             <label for="password"

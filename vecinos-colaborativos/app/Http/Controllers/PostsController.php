@@ -3,19 +3,26 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Post;
+use Auth;
 
 class PostsController extends Controller
 {
 
-  public function index()
+  public function profile()
+	{
+		$posts = Post::all();
+		return view('profile', compact('posts'));
+	}
+
+  public function create()
 	{
 		return view('create-post');
 	}
 
-
   public function store(Request $request)
 	{
-		// Validamos
+
 		$request->validate([
 			'title' => 'required',
 			'description' => 'required | string | max:1000',
@@ -30,25 +37,37 @@ class PostsController extends Controller
 
 
 		$newPost = Post::create($request->all());
+    if ($request["image"]) {
 
-    if ($request["imagen"]) {
+      $imagen = $request["image"];
 
-      $imagen = $request["imagen"];
-
-  		$imagenFinal = uniqid("user_id-" . $request['user_id']) . "." . $imagen->extension();
+  		$imagenFinal = uniqid(Auth::user()->email . ".") . "." . $imagen->extension();
 
   		$imagen->storePubliclyAs("public/post-files", $imagenFinal);
 
   		$newPost->image = $imagenFinal;
   		$newPost->save();
 
-  		return redirect('/timeline');
     }
 
     return redirect('/timeline');
 
+	}
 
+  public function edit($id)
+  {
+    $post = Post::find($id);
+    return view('edit-post', compact('post'));
+  }
+
+  public function update ($id, Request $request)
+	{
+    $postToUpdate = Post::find($id);
+		$postToUpdate->title = $request['title'];
+		$postToUpdate->description = $request['description'];
+		$postToUpdate->image = $request['image'];
+		$postToUpdate->video = $request['video'];
+		$postToUpdate->save();
+		return redirect('/profile');
 	}
 }
-
-// El timeline va a tener un formulario que por post trae la información para la función create

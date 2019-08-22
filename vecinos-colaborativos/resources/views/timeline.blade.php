@@ -22,7 +22,12 @@
 
   <div class="publicacion">
     <div class="usuario-foto-publicacion">
-      <a href="#"> <img class="foto-perfil-en-publicacion" src="/images/user-24px.png" alt="foto-de-perfil"> <span>Nombre de Usuario</span> </a>
+      <a href="#">
+        <div class="avatar-en-publicacion">
+          <img class="foto-perfil-en-publicacion" src="/images/user-24px.png" alt="foto-de-perfil">          
+        </div>
+        <span>Nombre de Usuario</span>
+      </a>
     </div>
     <div class="fecha-hora">
       <a href="#">4 de junio de 2019</a>

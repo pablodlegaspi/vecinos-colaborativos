@@ -309,6 +309,7 @@ hr {
   padding-right: 5px;
   color: rgb(107, 55, 148);
   font-weight: bold;
+  margin-left: 5px;
 }
 
 .usuario-foto-publicacion a span:hover {
@@ -319,6 +320,7 @@ hr {
   text-decoration: none;
   display: flex;
   align-items: center;
+  padding: 5px;
 }
 
 .foto-perfil-en-publicacion {

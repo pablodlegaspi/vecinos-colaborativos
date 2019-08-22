@@ -1,11 +1,31 @@
 .title-input {
-  border: none;
+  margin-top: 5px;
+  width: 100%;
+  border:none;
+  border: 1px solid grey;
+  border-radius: 4px;
+  outline: none;
+  padding: 5px;
+  color: rgb(66, 66, 66);
 }
 
+.description-input-div {
+  width: 100%;
+}
 
+.description-input {
+  margin-top: 5px;
+  width: 100%;
+  border:none;
+  border: 1px solid grey;
+  border-radius: 4px;
+  outline: none;
+  padding: 5px;
+  color: rgb(66, 66, 66);
+  font-family: Open Sans, sans-serif;
+}
 
 .multimedia-input {
-  margin-bottom: 5px;
   margin-top: 10px;
 }
 
@@ -17,10 +37,22 @@
   color: rgb(79, 56, 83);
   cursor: pointer;
   margin-right: 10px;
+  float: left;
 }
 
 .multimedia:hover {
   transition: background-color, color .3s ease-in;
   background-color: rgb(107, 55, 148);
   color: white;
+}
+
+.boton-publicar {
+  border: none;
+  color: white;
+  background: rgb(107, 55, 148);
+  font-size: 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 5px;
+  float: right;
 }

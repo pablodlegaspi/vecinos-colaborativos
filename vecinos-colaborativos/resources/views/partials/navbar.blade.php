@@ -4,11 +4,11 @@
     <div class="login-register">
       @auth
         <a href="/timeline">Timeline</a>
-        <a href="/profile.">Mi Perfil</a>
+        <a href="/profile">Mi Perfil</a>
       @endauth
       @guest
         <a href="/login">Iniciar Sesión</a>
-        <a href="/register">Registrate</a>        
+        <a href="/register">Registrate</a>
       @endguest
     </div>
   </section>

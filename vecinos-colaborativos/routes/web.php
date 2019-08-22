@@ -41,6 +41,11 @@ Route::get('/profile', function(){
   return view('profile');
 });
 
-Route::get('/create-post', function(){
-  return view('/create-post');
+Route::get('create-post', 'PostsController@index')->middleware('auth');
+
+
+Route::post('create-post', 'PostsController@index')->middleware('auth');
+
+Route::get('/contacts', function(){
+  return view('/contacts');
 });

@@ -40,7 +40,7 @@
             <div class="separador">
               <span>|</span>
             </div>
-            <a href="#"><i class="fas fa-plus"></i></a>
+            <a href="/create-post"><i class="fas fa-plus"></i></a>
             <div class="separador">
               <span>|</span>
             </div>

@@ -5,7 +5,7 @@
   <section class="timeline-center">
 
   <div class="publicacion">
-    <form class="" action="/edit-post" method="post" enctype="multipart/form-data">
+    <form class="" action="/edit-post/{{$post->id}}" method="post" enctype="multipart/form-data">
       @csrf
       <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
       <div class="usuario-foto-publicacion">

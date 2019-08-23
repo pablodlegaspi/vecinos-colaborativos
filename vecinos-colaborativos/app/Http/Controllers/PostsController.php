@@ -54,6 +54,11 @@ class PostsController extends Controller
 
 	}
 
+  public function show($id) {
+    $post = Post::find($id);
+    return view('post', compact('post'));
+  }
+
   public function edit($id)
   {
     $post = Post::find($id);
@@ -67,7 +72,31 @@ class PostsController extends Controller
 		$postToUpdate->description = $request['description'];
 		$postToUpdate->image = $request['image'];
 		$postToUpdate->video = $request['video'];
+
+    if ($request["image"]) {
+
+      $imagen = $request["image"];
+
+      $imagenFinal = uniqid(Auth::user()->email . ".") . "." . $imagen->extension();
+
+      $imagen->storePubliclyAs("public/post-files", $imagenFinal);
+
+      $postToUpdate->image = $imagenFinal;
+
+    }
+
 		$postToUpdate->save();
+
 		return redirect('/profile');
 	}
+
+  public function delete($id)	{
+
+		$postToDelete = Post::find($id);
+		$postToDelete->delete();
+
+		return redirect('/profile');
+	}
+
+
 }

@@ -71,6 +71,22 @@
                   <span>{{ Auth::user()->getFullName()}}</span>
                 </a>
               </div>
+
+              <form style="" action="/delete/{{ $post->id }}" method="post">
+      					@csrf
+      					{{ method_field('delete') }}
+      					<button type="submit" style="
+                background:none;
+                border:none;
+                font-size:1em;
+                color:grey;
+                cursor: pointer;
+                ">
+                <i class="fas fa-trash-alt">
+                <input type="hidden" name="" value="{{ $post->id }}">
+                </button>
+      				</form>
+
               <a href="/edit-post/{{$post->id}}" class="edit-post"><i class="fas fa-edit"></i></a>
             </div>
             <div class="fecha-hora">
@@ -100,7 +116,7 @@
             @endif
             <div class="ver-publ-container">
               <div class="ir-a-publicacion">
-                <a href="#">Ver publicación</a>
+                <a href="/post/{{$post->id}}">Ver publicación</a>
               </div>
             </div>
           </div>

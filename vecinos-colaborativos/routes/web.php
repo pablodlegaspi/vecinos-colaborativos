@@ -45,3 +45,9 @@ Route::get('/contacts', function(){
 });
 
 Route::get('edit-post/{id}', 'PostsController@edit')->middleware('auth');
+
+Route::post('edit-post/{id}', 'PostsController@update')->middleware('auth');
+
+Route::get('post/{id}', 'PostsController@show')->middleware('auth');
+
+Route::delete('/delete/{id}', 'PostsController@delete')->middleware('auth');

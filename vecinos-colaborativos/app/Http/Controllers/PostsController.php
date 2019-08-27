@@ -90,6 +90,15 @@ class PostsController extends Controller
 		return redirect('/profile');
 	}
 
+  public function removeMultimedia ($id, Request $request) {
+
+    $postToUpdate = Post::find($id);
+    $postToUpdate->image = null;
+    $postToUpdate->video = null;
+    $postToUpdate->save();
+    return redirect('/profile');
+  }
+
   public function delete($id)	{
 
 		$postToDelete = Post::find($id);

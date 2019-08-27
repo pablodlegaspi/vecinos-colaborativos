@@ -44,7 +44,7 @@
           <li><a href="#">Grupos</a></li>
           <li><a href="#">Proyectos</a></li>
           <li><a href="#">Intereses</a></li>
-          <li><a href="/settings">Configuración</a></li>
+          <li><a href="/settings/{{ Auth::user()->id }}">Configuración</a></li>
         </ul>
       </div>
     </div>
@@ -56,7 +56,13 @@
 
     <section class="timeline-center">
 
-      @if ($posts != null)
+      @if ($posts == null)
+
+        <div class="publicacion">
+          <span style="margin:auto;">Aún no tienes publicaciones<span>
+        </div>
+
+      @else
 
         @foreach ($posts as $post)
 
@@ -76,7 +82,7 @@
                 </a>
               </div>
 
-              <form style="" action="/delete/{{ $post->id }}" method="post">
+              <form class="delete-post" action="delete/{{ $post->id }}" method="post">
       					@csrf
       					{{ method_field('delete') }}
       					<button type="submit" style="
@@ -86,12 +92,12 @@
                 color:grey;
                 cursor: pointer;
                 ">
-                <i class="fas fa-trash-alt">
-                <input type="hidden" name="" value="{{ $post->id }}">
+                <i class="fas fa-trash-alt"></i>
+                <input type="hidden"  value="{{ $post->id }}">
                 </button>
       				</form>
 
-              <a href="/edit-post/{{$post->id}}" class="edit-post"><i class="fas fa-edit"></i></a>
+              <a href="edit-post/{{$post->id}}" class="edit-post"><i class="fas fa-edit"></i></a>
             </div>
             <div class="fecha-hora">
               <a href="#">
@@ -104,6 +110,9 @@
               @endphp --}}
               {{$post->created_at}}
             </a>
+            </div>
+            <div class="titulo-publicacion">
+              <span>{{$post->title}}</span>
             </div>
             <div class="texto-publicacion">
               <span>{{$post->description}}</span>
@@ -126,12 +135,6 @@
           </div>
 
         @endforeach
-
-      @else
-
-        <div class="publicacion">
-          <span style="margin:auto;">Aún no tienes publicaciones<span>
-        </div>
 
       @endif
 

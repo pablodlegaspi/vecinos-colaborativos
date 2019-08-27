@@ -105,6 +105,12 @@
   display: none;
 }
 
+.search {
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+
 .timeline-anchor {
   display: none;
 }
@@ -332,6 +338,11 @@ hr {
   background-color: white;
 }
 
+.delete-post{
+  align-self: flex-start;
+  padding-top: 2px;
+}
+
 .edit-post {
   align-self: flex-start;
   color: grey;
@@ -353,8 +364,18 @@ hr {
   text-decoration: underline;
 }
 
+.titulo-publicacion {
+  display: block;
+  width: 100%;
+  font-weight: bold;
+  padding-left: 10px;
+  padding-top: 5px;
+  color: rgb(82, 45, 111);
+}
+
 .texto-publicacion {
   padding: 10px;
+  width: 100%;
 }
 
 .ver-publ-container {

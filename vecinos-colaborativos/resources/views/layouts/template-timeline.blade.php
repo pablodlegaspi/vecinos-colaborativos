@@ -14,10 +14,15 @@
 
           <a class="logo" href="/timeline"><img src="/images/Logo50x50.png" alt="logo-de-vecinos-colaborativos"></a>
 
-          <div class="buscador-area">
+          <form class="buscador-area" action="search" method="get">
+            <input class="buscador" type="text" name="searched" value="" placeholder="Buscar...">
+            <button class="search" type="submit" name="search" value="search"><i class="fas fa-search"></i></button>
+          </form>
+
+          {{-- <div class="buscador-area">
             <input class="buscador" type="text" name="buscador" value="" placeholder="Buscar...">
             <a href="#"><i class="fas fa-search"></i></a>
-          </div>
+          </div> --}}
 
           <div class="buscador-lupa">
             <a href="#"><i class="fas fa-search"></i></a>
@@ -32,7 +37,7 @@
             <div class="separador">
               <span>|</span>
             </div>
-            <a href="/contactos"><i class="fas fa-user-friends"></i></a>
+            <a href="/contacts"><i class="fas fa-user-friends"></i></a>
             <div class="separador">
               <span>|</span>
             </div>
@@ -52,7 +57,7 @@
             <div class="dropdown-content">
               <a href="/contactos">Mis Contactos</a>
               <a href="#">Agregar Contactos</a>
-              <a href="#">Crear</a>
+              <a href="/create-post">Crear</a>
               <a href="#">Notificaciones</a>
             </div>
           </div>
@@ -157,7 +162,7 @@
       </section>
 
 
-        @yield('feed')
+      @yield('feed')
 
 
       <section class="timeline-right">

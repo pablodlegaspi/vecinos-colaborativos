@@ -70,6 +70,7 @@
 }
 
 .countries {
+  width: 45%;
   padding: 3px;
   border-radius: 5px;
   background-color: rgba(149, 112, 179, 0.63);
@@ -86,6 +87,20 @@
   font-size: 18px;
   color: rgb(106, 36, 36);
   background-color: rgb(238, 184, 184);
+}
+
+.register-alert-js {
+  margin-top: 5px;
+  margin-bottom: 25px;
+  width: 100%;
+  border:none;
+  border-radius: 4px;
+  outline: none;
+  padding: 5px;
+  font-size: 18px;
+  color: rgb(106, 36, 36);
+  background-color: rgb(238, 184, 184);
+  display: none;
 }
 
 .profile-pic-label {

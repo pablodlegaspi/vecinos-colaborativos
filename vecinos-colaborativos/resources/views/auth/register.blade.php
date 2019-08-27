@@ -1,12 +1,13 @@
-@php
+{{-- @php
   var_dump($errors)
-@endphp
+@endphp --}}
+
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="{{asset('css/styles.css')}}">
     <script src="{{ asset('js/app.js') }}" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
@@ -37,13 +38,16 @@
         <form action="/register" method="post" enctype="multipart/form-data">
           @csrf
           <div class="form-element">
-            <label for="first_Name"
+            <label for="first_name"
             @error ('first_name')
 							style="color:red;">
 						@enderror
               <b>Nombre:</b>
             </label>
-            <input class="form" type="text" name="first_name" id="first_Name" value="{{old('first_name')}}">
+            <input class="form" type="text" name="first_name" id="first_name" value="{{old('first_name')}}">
+            <div class="register-alert-js">
+              {{-- Error message --}}
+            </div>
             @error ('first_name')
               <div class="register-alert">
                 {{ $errors->first('first_name') }}
@@ -58,6 +62,9 @@
               <b>Apellido:</b>
             </label>
             <input class="form" type="text" name="last_name" id="last_name" value="{{old('last_name')}}">
+            <div class="register-alert-js">
+              {{-- Error message --}}
+            </div>
             @error ('last_name')
               <div class="register-alert">
                 {{ $errors->first('last_name') }}
@@ -72,6 +79,9 @@
               <b>Correo Electrónico:</b>
             </label>
             <input class="form" type="email" name="email" id="email" value="{{old('email')}}">
+            <div class="register-alert-js">
+              {{-- Error message --}}
+            </div>
             @error ('email')
               <div class="register-alert">
                 {{ $errors->first('email') }}
@@ -86,6 +96,9 @@
               <b>Contraseña:</b>
             </label>
             <input class="form" type="password" name="password" id="password">
+            <div class="register-alert-js">
+              {{-- Error message --}}
+            </div>
             @error ('password')
               <div class="register-alert">
                 {{ $errors->first('password') }}
@@ -100,6 +113,9 @@
               <b>Repetir contraseña:</b>
             </label>
             <input class="form" type="password" name="password_confirmation" id="password_confirmation">
+            <div class="register-alert-js">
+              {{-- Error message --}}
+            </div>
             @error ('password')
               <div class="register-alert">
                 {{ $errors->first('password') }}
@@ -114,8 +130,10 @@
               <b>País de Nacimiento:</b>
               <select class="countries" name="country">
                 <option value="">Elegí un país</option>
-                <option value="ar">Argentina</option>
               </select>
+              <div class="register-alert-js">
+                {{-- Error message --}}
+              </div>
             </label>
             @error ('country')
               <div class="register-alert">
@@ -134,6 +152,9 @@
                 Mi Archivo
               </label>
               <input class"form" type="file" name="avatar" id="avatar" style="display: none;">
+              <div class="register-alert-js">
+                {{-- Error message --}}
+              </div>
             </label>
             @error ('avatar')
               <div class="register-alert">
@@ -158,4 +179,8 @@
   </div>
 
   </body>
+
+  <script src="{{ asset('js/registerValidation.js') }}"></script>
+  <script src="{{ asset('js/getCountries.js') }}"></script>
+
 </html>

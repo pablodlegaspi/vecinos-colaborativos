@@ -53,7 +53,7 @@ class RegisterController extends Controller
           'first_name' => ['required', 'string', 'max:255'],
           'last_name' => ['required', 'string', 'max:255'],
           'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-          'password' => ['required', 'string', 'min:5', 'confirmed'],
+          'password' => ['required', 'string', 'min:5', 'confirmed', 'regex:/DH/'],
           'country' => ['required', 'string', 'max:20'],
           'avatar' => ['image']
         ],[
@@ -63,8 +63,12 @@ class RegisterController extends Controller
           'max' => 'Excediste el máximo de caracteres posibles',
           'image' => 'El formato debe ser apropiado para una imagen',
           'confirmed' => 'Las contraseñas no coinciden',
-          'email.unique:users' => 'Ya existe un usuario con ese email' //no funciona esto
+          'min' => 'La contraseña debe tener mínimo 5 caracteres',
+          'email.unique' => 'Ya existe un usuario con ese email',
+          'password.regex' => 'La contraseña no puede tener espacios y debe incluir las letras "DH"',
         ]);
+
+        // no puedo hacer que detecte bien esto 'regex:/[\s]/'
     }
 
     /**

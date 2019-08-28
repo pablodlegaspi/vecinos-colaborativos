@@ -35,9 +35,11 @@ Route::get('/timeline', function(){
 })->middleware('auth');
 
 // Route::get('settings/{id}', 'UserController@settings')->middleware('auth');
-Route::get('settings/{id}', function(){
+Route::get('settings', function(){
   return view('/settings');
 })->middleware('auth');
+
+Route::put('settings', 'UserController@update')->name('updateUser')->middleware('auth');
 
 Route::get('search', 'SearchController@search')->middleware('auth');
 

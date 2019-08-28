@@ -44,7 +44,7 @@
           <li><a href="#">Grupos</a></li>
           <li><a href="#">Proyectos</a></li>
           <li><a href="#">Intereses</a></li>
-          <li><a href="settings/{{ Auth::user()->id }}">Configuración</a></li>
+          <li><a href="settings">Configuración</a></li>
         </ul>
       </div>
     </div>

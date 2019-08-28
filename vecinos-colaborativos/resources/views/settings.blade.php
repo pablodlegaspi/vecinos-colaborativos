@@ -5,52 +5,130 @@
   <section class="timeline-center">
 
   <div class="settings">
-    <h3>Configuración</h4>
+    {{-- <h3>Configuración</h4>
     <div class="user-information">
       <ul>
         <li>Nombre Completo: <b>{{Auth::user()->getFullName()}}</b></li>
         <li>Correo Electrónico: <b>{{Auth::user()->email}}</b> </li>
-        <li>País de Nacimiento: <b id="country-in-settings"></b></li>
+        <li>País de Nacimiento: <b  id="country-in-settings"></b></li>
       </ul>
-    </div>
+    </div> --}}
     <h3>Cambiar datos personales:</h3>
 
-    <form class="change-information" action="" method="post" enctype="multipart/form-data">
+    <form class="change-information" action="{{route('updateUser')}}" method="post" enctype="multipart/form-data">
+      {{-- {{route('updateUser')}} --}}
+        @csrf
+        {{ method_field('put') }}
 
       <div class="form-element">
-        <label for="fullName">
-          <b>Nombre Completo:</b>
+        <label for="first_name"
+        @error ('first_name')
+          style="color:red;">
+        @enderror
+          <b>Nombre:</b>
         </label>
-        <input class="form" type="text" name="newFullName" id="fullName" placeholder="Ingresa tu nuevo nombre...">
+        <input class="form" type="text" name="first_name" id="first_name" placeholder="Ingresa tu nuevo nombre...">
+        @error ('first_name')
+          <div class="register-alert">
+            {{ $errors->first('first_name') }}
+          </div>
+        @enderror
       </div>
 
       <div class="form-element">
-        <label for="password">
+        <label for="last_name"
+        @error ('last_name')
+          style="color:red;">
+        @enderror
+          <b>Apellido:</b>
+        </label>
+        <input class="form" type="text" name="last_name" id="last_name" placeholder="Ingresa tu nuevo apellido...">
+        @error ('last_name')
+          <div class="register-alert">
+            {{ $errors->first('last_name') }}
+          </div>
+        @enderror
+      </div>
+
+      <div class="form-element">
+        <label for="email"
+        @error ('email')
+          style="color:red;">
+        @enderror
+          <b>Correo Electrónico:</b>
+        </label>
+        <input class="form" type="email" name="email" id="email" placeholder="Ingresa tu nuevo correo electrónico...">
+        @error ('email')
+          <div class="register-alert">
+            {{ $errors->first('email') }}
+          </div>
+        @enderror
+      </div>
+
+      <div class="form-element">
+        <label for="password"
+        @error ('password')
+          style="color:red;">
+        @enderror
           <b>Contraseña:</b>
         </label>
-        <input class="form" type="password" name="password" id="password" placeholder="Ingresa tu contraseña...">
-        <input class="form" type="password" name="newPassword" id="password" placeholder="Ingresa tu contraseña nueva...">
-        <input class="form" type="password" name="reNewPassword" id="password" placeholder="Repite tu contraseña nueva...">
+        <input class="form" type="password" name="password" id="password" placeholder="Ingresa tu contraseña nueva...">
+        @error ('password')
+          <div class="register-alert">
+            {{ $errors->first('password') }}
+          </div>
+        @enderror
       </div>
 
       <div class="form-element">
-        <label for="country">
+        <label for="password_confirmation"
+        @error ('password_confirmation')
+          style="color:red;">
+        @enderror
+          <b>Repetir contraseña:</b>
+        </label>
+        <input class="form" type="password" name="password_confirmation" id="password_confirmation" placeholder="Repite tu contraseña nueva...">
+        @error ('password')
+          <div class="register-alert">
+            {{ $errors->first('password') }}
+          </div>
+        @enderror
+      </div>
+
+      <div class="form-element">
+        <label for="country"
+        @error ('country')
+          style="color:red;">
+        @enderror
           <b>Nuevo País de Nacimiento:</b>
           <select class="countries" name="country">
             <option value="">Elegí un país</option>
           </select>
         </label>
+        @error ('country')
+          <div class="register-alert">
+            {{ $errors->first('country') }}
+          </div>
+        @enderror
       </div>
 
       <div class="form-element">
-        <label for="profilePic" class="profile-pic-label-container">
+        <label for="avatar" class="profile-pic-label-container"
+        @error ('avatar')
+          style="color:red;">
+        @enderror
           <b>Nueva Imagen de perfil:</b>
-          <label class="profile-pic-label" for="profilePic">
+          <label class="profile-pic-label" for="avatar">
             <i class="fas fa-file-upload"></i>
             Mi Archivo
           </label>
-          <input class"form" type="file" name="profilePic" id="profilePic" value="" style="display: none;">
+          <input class"form" type="file" name="avatar" id="avatar" value="" style="display: none;">
         </label>
+        @error ('avatar')
+          <div class="register-alert">
+            {{ $errors->first('avatar') }}
+          </div>
+        @enderror
       </div>
 
       <div class="form-element">

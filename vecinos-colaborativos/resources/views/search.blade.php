@@ -16,9 +16,18 @@
   @foreach ($users as $user)
 
     <div class="contacto">
-      <div class="contacto-izq">
-        <a href="#"><img src="/images/user-120x120.png" alt="foto-de-contacto"></a>
+      <a href="#">
+      <div class="contacto-izq" style="
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      background-image: url('{{ '/storage/avatars/' . $user->avatar }}');
+      background-size: cover;
+      background-position: center;
+      border-radius: 100%;">
       </div>
+    </a>
       <div class="contacto-der">
         <div class="nombre-contacto">
           <a href="#" class="nombre-contacto">{{$user->getFullName()}}</a>

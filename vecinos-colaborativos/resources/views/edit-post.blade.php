@@ -58,7 +58,7 @@
       <div class="multimedia-input">
         <label class="multimedia" for="image">
           <i class="fas fa-file-upload"></i>
-          Imágen
+          Cambiar Imágen
         </label>
         <input class"" type="file" name="image" id="image" style="display: none;">
 
@@ -66,7 +66,11 @@
           <i style="color: red;"> {{ $errors->first('image') }}</i>
         @enderror
 
-        <label class="multimedia" for="video">
+        <label class="multimedia" for="removeImage">
+          <input type="checkbox" name="removeImage" id="removeImage" value="remove">Quitar Imágen
+        </label>
+
+        {{-- <label class="multimedia" for="video">
           <i class="fas fa-file-upload"></i>
           Video
         </label>
@@ -74,7 +78,10 @@
 
         @error ('video')
           <i style="color: red;"> {{ $errors->first('video') }}</i>
-        @enderror
+        @enderror --}}
+      </div>
+      <div class="publicar">
+        <a class="volver" href="/profile">Volver</a>
       </div>
       <div class="publicar">
         <button type="submit" class="boton-publicar" name="edit">Guardar</button>

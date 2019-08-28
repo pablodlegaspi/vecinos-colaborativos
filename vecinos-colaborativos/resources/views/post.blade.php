@@ -19,6 +19,20 @@
                   <span>{{ Auth::user()->getFullName()}}</span>
                 </a>
               </div>
+              <form class="delete-post" action="{{ route('deletePost') }}" method="post">
+      					@csrf
+      					{{ method_field('delete') }}
+      					<button type="submit" style="
+                background:none;
+                border:none;
+                font-size:1em;
+                color:grey;
+                cursor: pointer;
+                ">
+                <i class="fas fa-trash-alt"></i>
+                <input type="hidden" name="post_id" value="{{ $post->id }}">
+                </button>
+      				</form>
               <a href="/edit-post/{{$post->id}}" class="edit-post"><i class="fas fa-edit"></i></a>
             </div>
             <div class="fecha-hora">

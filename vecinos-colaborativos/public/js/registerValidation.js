@@ -8,11 +8,9 @@ inputs.pop();
 
 var regexEmail = /\S+@\S+\.\S+/;
 
-var regexSpace = /[\s]/; // más correcto creo que es usar esta: /[\s]/
+var regexSpace = /[\s]/;
 
 var regexDH = /DH/;
-
-// /[DH]/
 
 var errors = {};
 

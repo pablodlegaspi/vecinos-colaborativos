@@ -12,7 +12,8 @@ class SearchController extends Controller
 
     $users = User::where('first_name' , 'LIKE', '%' . $_GET['searched'] . '%')
     ->orWhere('last_name', 'LIKE', '%' . $_GET['searched'] . '%')
-    ->orderBy('first_name');
+    ->orderBy('first_name')
+    ->get();
 
     return view('search', compact('users'));
   }

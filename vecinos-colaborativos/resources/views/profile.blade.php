@@ -1,5 +1,5 @@
 {{-- @php
-  var_dump($posts)
+  var_dump(Auth::user()->post->count())
 @endphp --}}
 
 @extends('layouts.template-timeline')
@@ -44,7 +44,7 @@
           <li><a href="#">Grupos</a></li>
           <li><a href="#">Proyectos</a></li>
           <li><a href="#">Intereses</a></li>
-          <li><a href="/settings/{{ Auth::user()->id }}">Configuración</a></li>
+          <li><a href="settings/{{ Auth::user()->id }}">Configuración</a></li>
         </ul>
       </div>
     </div>
@@ -56,7 +56,7 @@
 
     <section class="timeline-center">
 
-      @if ($posts == null)
+      @if (Auth::user()->post->count() == 0)
 
         <div class="publicacion">
           <span style="margin:auto;">Aún no tienes publicaciones<span>
@@ -82,7 +82,7 @@
                 </a>
               </div>
 
-              <form class="delete-post" action="delete/{{ $post->id }}" method="post">
+              <form class="delete-post" action="{{ route('deletePost') }}" method="post">
       					@csrf
       					{{ method_field('delete') }}
       					<button type="submit" style="
@@ -93,7 +93,7 @@
                 cursor: pointer;
                 ">
                 <i class="fas fa-trash-alt"></i>
-                <input type="hidden"  value="{{ $post->id }}">
+                <input type="hidden" name="post_id" value="{{ $post->id }}">
                 </button>
       				</form>
 

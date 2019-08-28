@@ -34,7 +34,10 @@ Route::get('/timeline', function(){
   return view('timeline');
 })->middleware('auth');
 
-Route::get('settings/{id}', 'UserController@settings')->middleware('auth');
+// Route::get('settings/{id}', 'UserController@settings')->middleware('auth');
+Route::get('settings/{id}', function(){
+  return view('/settings');
+})->middleware('auth');
 
 Route::get('search', 'SearchController@search')->middleware('auth');
 
@@ -46,7 +49,7 @@ Route::post('create-post', 'PostsController@store')->middleware('auth');
 
 Route::get('/contacts', function(){
   return view('/contacts');
-});
+})->middleware('auth');
 
 Route::get('edit-post/{id}', 'PostsController@edit')->middleware('auth');
 
@@ -54,4 +57,6 @@ Route::post('edit-post/{id}', 'PostsController@update')->middleware('auth');
 
 Route::get('post/{id}', 'PostsController@show')->middleware('auth');
 
-Route::delete('delete/{id}', 'PostsController@delete')->middleware('auth');
+Route::delete('delete/post', 'PostsController@delete')->name('deletePost')->middleware('auth');
+// Route::delete('delete/{id}', 'PostsController@delete')->middleware('auth');
+// Route::delete('post/delete/{id}', 'PostsController@delete')->middleware('auth');

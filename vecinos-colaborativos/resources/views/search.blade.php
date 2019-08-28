@@ -5,7 +5,7 @@
 <section class="timeline-center">
 
 
-  @if ($users == null)
+  @if ($users->count() == 0)
 
     <div class="publicacion">
       <span style="margin:auto;">No se encontraron usuarios con esos datos<span>

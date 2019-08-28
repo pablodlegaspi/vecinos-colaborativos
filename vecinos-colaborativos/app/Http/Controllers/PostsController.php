@@ -11,7 +11,8 @@ class PostsController extends Controller
 
   public function profile()
 	{
-		$posts = Post::all();
+    $userId = Auth::user()->id;
+		$posts = Post::where('user_id', 'like', $userId)->get();
 		return view('profile', compact('posts'));
 	}
 
@@ -50,7 +51,7 @@ class PostsController extends Controller
 
     }
 
-    return redirect('/timeline');
+    return redirect('/profile');
 
 	}
 
@@ -85,6 +86,10 @@ class PostsController extends Controller
 
     }
 
+    if ($request['removeImage']) {
+      $postToUpdate->image = null;
+    }
+
 		$postToUpdate->save();
 
 		return redirect('/profile');
@@ -99,9 +104,9 @@ class PostsController extends Controller
     return redirect('/profile');
   }
 
-  public function delete($id)	{
+  public function delete(Request $request)	{
 
-		$postToDelete = Post::find($id);
+		$postToDelete = Post::find($request['post_id']);
 		$postToDelete->delete();
 
 		return redirect('/profile');

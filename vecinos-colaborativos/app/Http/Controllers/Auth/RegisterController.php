@@ -68,7 +68,7 @@ class RegisterController extends Controller
           'password.regex' => 'La contraseña no puede tener espacios y debe incluir las letras "DH"',
         ]);
 
-        // no puedo hacer que detecte bien esto 'regex:/[\s]/'
+        // no puedo hacer que detecte bien esto 'regex:/['\s']/'
     }
 
     /**

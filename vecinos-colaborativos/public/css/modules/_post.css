@@ -27,6 +27,11 @@
 
 .multimedia-input {
   margin-top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 
@@ -37,7 +42,6 @@
   color: rgb(79, 56, 83);
   cursor: pointer;
   margin-right: 10px;
-  float: left;
 }
 
 .multimedia:hover {
@@ -54,5 +58,17 @@
   border-radius: 4px;
   cursor: pointer;
   padding: 5px;
+  float: right;
+}
+
+.volver {
+  border: none;
+  color: white;
+  background: rgb(107, 55, 148);
+  font-size: 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 5px;
+  text-decoration: none;
   float: right;
 }

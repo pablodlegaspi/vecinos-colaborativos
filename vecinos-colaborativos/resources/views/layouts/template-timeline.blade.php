@@ -14,7 +14,7 @@
 
           <a class="logo" href="/timeline"><img src="/images/Logo50x50.png" alt="logo-de-vecinos-colaborativos"></a>
 
-          <form class="buscador-area" action="search" method="get">
+          <form class="buscador-area" action="{{route('search')}}" method="get">
             <input class="buscador" type="text" name="searched" value="" placeholder="Buscar...">
             <button class="search" type="submit" name="search" value="search"><i class="fas fa-search"></i></button>
           </form>

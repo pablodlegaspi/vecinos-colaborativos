@@ -11,12 +11,12 @@
                   <div class="avatar-en-publicacion" style="
                   height: 34px;
                   width: 34px;
-                  background-image: url('{{ '/storage/avatars/' . Auth::user()->avatar }}');
+                  background-image: url('{{ '/storage/avatars/' . $post->user->avatar }}');
                   background-size: cover;
                   background-position: center;
                   border-radius: 100%;">
                   </div>
-                  <span>{{ Auth::user()->getFullName()}}</span>
+                  <span>{{ $post->user->getFullName()}}</span>
                 </a>
               </div>
               <form class="delete-post" action="{{ route('deletePost') }}" method="post">

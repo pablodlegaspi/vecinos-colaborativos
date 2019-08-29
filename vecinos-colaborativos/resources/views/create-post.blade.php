@@ -48,7 +48,7 @@
           <i style="color: red;"> {{ $errors->first('image') }}</i>
         @enderror
 
-        <label class="multimedia" for="video">
+        {{-- <label class="multimedia" for="video">
           <i class="fas fa-file-upload"></i>
           Video
         </label>
@@ -56,7 +56,7 @@
 
         @error ('video')
           <i style="color: red;"> {{ $errors->first('video') }}</i>
-        @enderror
+        @enderror --}}
       </div>
       <div class="publicar">
         <button type="submit" class="boton-publicar" name="publicar">Publicar</button>

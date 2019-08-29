@@ -1,6 +1,12 @@
-{{-- @php
-  var_dump(Auth::user()->post->count())
-@endphp --}}
+{{-- @if ($user->id === Auth::user()->id)
+  @php
+    header("location: /profile");
+    exit;
+  @endphp
+@endif --}}
+{{--
+{{Auth::user()->id}}
+{{$user->id}} --}}
 
 @extends('layouts.template-timeline')
 
@@ -18,7 +24,7 @@
             justify-content: center;
             align-items: center;
             border: 5px black;
-            background-image: url('{{ '/storage/avatars/' . Auth::user()->avatar }}');
+            background-image: url('{{ '/storage/avatars/' . $user->avatar }}');
             background-size: cover;
             background-position: center;
             border-radius: 100%;">
@@ -26,7 +32,7 @@
         </a>
 
         <div class="datos-en-perfil">
-          <a href="/profile">{{ Auth::user()->first_name . ' ' . Auth::user()->last_name}}</a>
+          <a href="/profile">{{ $user->first_name . ' ' . $user->last_name}}</a>
           <ul>
             <li class="fb"><a href="#"><i class="fab fa-facebook-f"></a></i></li>
             <li class="tw"><a href="#"><i class="fab fa-twitter"></i></a></li>
@@ -56,10 +62,10 @@
 
     <section class="timeline-center">
 
-      @if (Auth::user()->post->count() == 0)
+      @if ($user->post->count() == 0)
 
         <div class="publicacion">
-          <span style="margin:auto;">Aún no tienes publicaciones<span>
+          <span style="margin:auto;">Aún no tiene publicaciones<span>
         </div>
 
       @else
@@ -73,31 +79,35 @@
                   <div class="avatar-en-publicacion" style="
                   height: 34px;
                   width: 34px;
-                  background-image: url('{{ '/storage/avatars/' . Auth::user()->avatar }}');
+                  background-image: url('{{ '/storage/avatars/' . $user->avatar }}');
                   background-size: cover;
                   background-position: center;
                   border-radius: 100%;">
                   </div>
-                  <span>{{ Auth::user()->getFullName()}}</span>
+                  <span>{{ $user->getFullName()}}</span>
                 </a>
               </div>
 
-              <form class="delete-post" action="{{ route('deletePost') }}" method="post">
-      					@csrf
-      					{{ method_field('delete') }}
-      					<button type="submit" style="
-                background:none;
-                border:none;
-                font-size:1em;
-                color:grey;
-                cursor: pointer;
-                ">
-                <i class="fas fa-trash-alt"></i>
-                <input type="hidden" name="post_id" value="{{ $post->id }}">
+              @if (Auth::user()->id == $user->id)
+
+                <form class="delete-post" action="{{ route('deletePost') }}" method="post">
+                  @csrf
+                  {{ method_field('delete') }}
+                  <button type="submit" style="
+                  background:none;
+                  border:none;
+                  font-size:1em;
+                  color:grey;
+                  cursor: pointer;
+                  ">
+                  <i class="fas fa-trash-alt"></i>
+                  <input type="hidden" name="post_id" value="{{ $post->id }}">
                 </button>
-      				</form>
+              </form>
 
               <a href="edit-post/{{$post->id}}" class="edit-post"><i class="fas fa-edit"></i></a>
+              @endif
+
             </div>
             <div class="fecha-hora">
               <a href="/post/{{$post->id}}">

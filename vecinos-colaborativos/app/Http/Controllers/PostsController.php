@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\User;
+use App\Follower;
 use Auth;
 
 class PostsController extends Controller
@@ -15,6 +17,20 @@ class PostsController extends Controller
 		$posts = Post::where('user_id', 'like', $userId)->get();
 		return view('profile', compact('posts'));
 	}
+
+  public function timeline() {
+
+    $userId = Auth::user()->id;
+    $following = Follower::where('follower', 'like', $userId)->get();
+    // dd($following);
+    foreach ($following as $followers) {
+      $follower = $followers->followed;
+    }
+    // dd($follower);
+    $posts = Post::where('user_id', 'like', $follower)->get();
+    return view('timeline', compact('posts'));
+
+  }
 
   public function create()
 	{
@@ -95,14 +111,14 @@ class PostsController extends Controller
 		return redirect('/profile');
 	}
 
-  public function removeMultimedia ($id, Request $request) {
-
-    $postToUpdate = Post::find($id);
-    $postToUpdate->image = null;
-    $postToUpdate->video = null;
-    $postToUpdate->save();
-    return redirect('/profile');
-  }
+  // public function removeMultimedia ($id, Request $request) {
+  //
+  //   $postToUpdate = Post::find($id);
+  //   $postToUpdate->image = null;
+  //   $postToUpdate->video = null;
+  //   $postToUpdate->save();
+  //   return redirect('/profile');
+  // }
 
   public function delete(Request $request)	{
 

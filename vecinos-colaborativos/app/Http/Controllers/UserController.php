@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\User;
+use App\Post;
+use App\Follower;
 use Auth;
 
 class UserController extends Controller
@@ -74,4 +76,29 @@ class UserController extends Controller
     return redirect('profile');
 
   }
+
+  public function oneProfile($id) {
+
+    $user = User::find($id);
+    $posts = Post::where('user_id', 'like', $id)->get();
+
+    if ($user->id == Auth::user()->id) {
+      return redirect()->action('PostsController@profile');
+    } else {
+      return view('otherProfile', compact('user', 'posts'));
+    }
+
+  }
+
+  public function follow(Request $request) {
+
+    if ($request['follower'] == $request['followed']) {
+      return redirect('profile');
+    }
+
+    Follower::create($request->all());
+    return view('timeline');
+
+  }
+
 }

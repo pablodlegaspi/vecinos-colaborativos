@@ -34,6 +34,9 @@ Route::get('/timeline', function(){
   return view('timeline');
 })->middleware('auth');
 
+// Route::get('/timeline', 'PostsController@timeline')->middleware('auth');
+
+
 // Route::get('settings/{id}', 'UserController@settings')->middleware('auth');
 Route::get('settings', function(){
   return view('/settings');
@@ -41,7 +44,7 @@ Route::get('settings', function(){
 
 Route::put('settings', 'UserController@update')->name('updateUser')->middleware('auth');
 
-Route::get('search', 'SearchController@search')->middleware('auth');
+Route::get('search', 'SearchController@search')->name('search')->middleware('auth');
 
 Route::get('profile', 'PostsController@profile')->middleware('auth');
 
@@ -62,3 +65,7 @@ Route::get('post/{id}', 'PostsController@show')->middleware('auth');
 Route::delete('delete/post', 'PostsController@delete')->name('deletePost')->middleware('auth');
 // Route::delete('delete/{id}', 'PostsController@delete')->middleware('auth');
 // Route::delete('post/delete/{id}', 'PostsController@delete')->middleware('auth');
+
+Route::get('otherProfile/{id}', 'UserController@oneProfile')->middleware('auth');
+
+Route::post('follow', 'UserController@follow')->name('follow')->middleware('auth');
